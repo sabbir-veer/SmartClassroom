@@ -52,6 +52,16 @@ BEGIN
 END;
 $$ language plpgsql;
 
+
+ADD MEMBER TO WORKSPACE
+create 
+or replace function add_member_to_workspace(user_id text, workspace_id uuid) returns void as $$
+begin
+  update workspaces set members = members || array[user_id]
+  where id = workspace_id;
+end;
+$$ language plpgsql  
+
 CREATE CHANNELS
 create table
   channels (

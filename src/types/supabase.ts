@@ -87,22 +87,22 @@ export type Database = {
         }
         Relationships: [
           {
-            foreignKeyName: "direct_message_user_one_fkey"
+            foreignKeyName: "direct_messages_user_fkey"
+            columns: ["user"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "direct_messages_user_one_fkey"
             columns: ["user_one"]
             isOneToOne: false
             referencedRelation: "users"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "direct_message_user_two_fkey"
+            foreignKeyName: "direct_messages_user_two_fkey"
             columns: ["user_two"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "direct_messages_user_fkey"
-            columns: ["user"]
             isOneToOne: false
             referencedRelation: "users"
             referencedColumns: ["id"]
